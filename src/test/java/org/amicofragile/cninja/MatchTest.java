@@ -7,6 +7,7 @@ import org.junit.Test;
 public class MatchTest {
 	private static final String GUEST = "B";
 	private static final String HOME = "A";
+	private static final String OTHER = "O";
 
 	@Test
 	public void testConstructorAndGetters() throws Exception {
@@ -27,5 +28,19 @@ public class MatchTest {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(GUEST, HOME);
 		assertNotEquals(m1, m2);
+	}
+	
+	@Test
+	public void equalsMatchesHaveTheSameHashCode() throws Exception {
+		Match m1 = new Match(HOME, GUEST);
+		Match m2 = new Match(HOME, GUEST);
+		assertEquals(m1.hashCode(), m2.hashCode());
+	}
+	
+	@Test
+	public void notEqualsMatchesHaveDifferentHashCodes() throws Exception {
+		Match m1 = new Match(HOME, GUEST);
+		Match m2 = new Match(HOME, OTHER);
+		assertNotEquals(m1.hashCode(), m2.hashCode());
 	}
 }

@@ -21,4 +21,9 @@ public class Match {
 		Match that = (Match)obj;
 		return this.home.equals(that.home) && this.guest.equals(that.guest);
 	}
+	
+	@Override
+	public int hashCode() {
+		return (11 + this.home.hashCode()) * 17 + this.guest.hashCode();
+	}
 }
