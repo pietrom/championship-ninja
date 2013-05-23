@@ -15,4 +15,10 @@ public class Match {
 	public String getGuest() {
 		return guest;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Match that = (Match)obj;
+		return this.home.equals(that.home) && this.guest.equals(that.guest);
+	}
 }
