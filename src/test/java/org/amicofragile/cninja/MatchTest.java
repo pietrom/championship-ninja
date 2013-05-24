@@ -59,7 +59,7 @@ public class MatchTest {
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void cantProvideNullHomeCompetitor() throws Exception {
+	public void homeCompetitorCantBeNull() throws Exception {
 		new Match(null, GUEST);
 	}
 	
