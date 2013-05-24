@@ -4,14 +4,17 @@ public class Match {
 	private final String home, guest;
 
 	public Match(String home, String guest) {
-		if (home == null) {
-			throw new IllegalArgumentException("Home competitor can't be null");
-		}
-		if (guest == null) {
-			throw new IllegalArgumentException("Guest competitor can't be null");
-		}
+		checkArgumentIsNotNull(home, "Home competitor can't be null");
+		checkArgumentIsNotNull(guest, "Guest competitor can't be null");
+
 		this.home = home;
 		this.guest = guest;
+	}
+
+	private void checkArgumentIsNotNull(Object arg, String message) {
+		if (arg == null) {
+			throw new IllegalArgumentException(message);
+		}
 	}
 
 	public String getHome() {
