@@ -24,6 +24,20 @@ public class MatchTest {
 	}
 	
 	@Test
+	public void matchesAreNotEqualsIfMatchesHaveDifferentHomeCompetitors() throws Exception {
+		Match m1 = new Match(HOME, GUEST);
+		Match m2 = new Match(OTHER, GUEST);
+		assertNotEquals(m1, m2);
+	}
+	
+	@Test
+	public void matchesAreNotEqualsIfMatchesHaveDifferentGuestCompetitors() throws Exception {
+		Match m1 = new Match(HOME, GUEST);
+		Match m2 = new Match(HOME, OTHER);
+		assertNotEquals(m1, m2);
+	}
+	
+	@Test
 	public void orderMattersInEquals() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(GUEST, HOME);
