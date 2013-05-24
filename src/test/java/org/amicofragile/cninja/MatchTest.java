@@ -57,4 +57,9 @@ public class MatchTest {
 		Match m2 = new Match(HOME, OTHER);
 		assertNotEquals(m1.hashCode(), m2.hashCode());
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void cantProvideNullHomeCompetitor() throws Exception {
+		new Match(null, GUEST);
+	}
 }

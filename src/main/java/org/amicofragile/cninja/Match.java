@@ -4,6 +4,9 @@ public class Match {
 	private final String home, guest;
 	
 	public Match(String home, String guest) {
+		if(home == null) {
+			throw new IllegalArgumentException("Home competitor can't be null");
+		}
 		this.home = home;
 		this.guest = guest;
 	}
