@@ -35,4 +35,8 @@ public class Match {
 	public int hashCode() {
 		return (11 + this.home.hashCode()) * 17 + this.guest.hashCode();
 	}
+
+	public boolean isSecondRound(Match that) {
+		return this.guest.equals(that.home) && this.home.equals(that.guest);
+	}
 }

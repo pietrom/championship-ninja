@@ -15,56 +15,66 @@ public class MatchTest {
 		assertEquals(HOME, match.getHome());
 		assertEquals(GUEST, match.getGuest());
 	}
-	
+
 	@Test
 	public void matchesAreEqualsIfBothCompetitorsAreEquals() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(HOME, GUEST);
 		assertEquals(m1, m2);
 	}
-	
+
 	@Test
-	public void matchesAreNotEqualsIfMatchesHaveDifferentHomeCompetitors() throws Exception {
+	public void matchesAreNotEqualsIfMatchesHaveDifferentHomeCompetitors()
+			throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(OTHER, GUEST);
 		assertNotEquals(m1, m2);
 	}
-	
+
 	@Test
-	public void matchesAreNotEqualsIfMatchesHaveDifferentGuestCompetitors() throws Exception {
+	public void matchesAreNotEqualsIfMatchesHaveDifferentGuestCompetitors()
+			throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(HOME, OTHER);
 		assertNotEquals(m1, m2);
 	}
-	
+
 	@Test
 	public void orderMattersInEquals() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(GUEST, HOME);
 		assertNotEquals(m1, m2);
 	}
-	
+
 	@Test
 	public void equalsMatchesHaveTheSameHashCode() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(HOME, GUEST);
 		assertEquals(m1.hashCode(), m2.hashCode());
 	}
-	
+
 	@Test
 	public void notEqualsMatchesHaveDifferentHashCodes() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(HOME, OTHER);
 		assertNotEquals(m1.hashCode(), m2.hashCode());
 	}
-	
-	@Test(expected=IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void homeCompetitorCantBeNull() throws Exception {
 		new Match(null, GUEST);
 	}
-	
-	@Test(expected=IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void guestCompetitorCantBeNull() throws Exception {
 		new Match(GUEST, null);
+	}
+
+	@Test
+	public void isSecondRoundIfHomeAndGuestAreExchanged() throws Exception {
+		Match m1 = new Match(HOME, GUEST);
+		Match m2 = new Match(GUEST, HOME);
+		assertTrue(m1.isSecondRound(m2));
+		assertTrue(m2.isSecondRound(m1));
 	}
 }
