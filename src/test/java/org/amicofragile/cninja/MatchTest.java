@@ -74,7 +74,7 @@ public class MatchTest {
 	public void isSecondRoundIfHomeAndGuestAreExchanged() throws Exception {
 		Match m1 = new Match(HOME, GUEST);
 		Match m2 = new Match(GUEST, HOME);
-		assertTrue(m1.isSecondRound(m2));
-		assertTrue(m2.isSecondRound(m1));
+		assertTrue(m1.isReverseOf(m2));
+		assertTrue(m2.isReverseOf(m1));
 	}
 }
