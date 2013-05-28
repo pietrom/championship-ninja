@@ -10,4 +10,12 @@ public class DayTest {
 		Day day = new Day();
 		assertFalse(day.contains(new Match("A", "B")));
 	}
+	
+	@Test
+	public void givenADayWithAMatchThenContainsReturnsTrueForThatMatch() throws Exception {
+		Match match = new Match("A", "B");
+		Day day = new Day();
+		day.addMatch(match);
+		assertTrue(day.contains(match));
+	}
 }
