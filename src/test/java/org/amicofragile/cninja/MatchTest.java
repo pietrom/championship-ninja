@@ -77,4 +77,11 @@ public class MatchTest {
 		assertTrue(m1.isReverseOf(m2));
 		assertTrue(m2.isReverseOf(m1));
 	}
+	
+	@Test
+	public void reverseExchangesHomeAndGuest() throws Exception {
+		Match m = new Match(HOME, GUEST);
+		Match r = m.reverse();
+		assertEquals(new Match(GUEST, HOME), r);
+	}
 }

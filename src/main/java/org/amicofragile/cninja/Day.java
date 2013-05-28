@@ -11,7 +11,7 @@ public class Day {
 	}
 	
 	public boolean contains(Match match) {
-		return matches.contains(match);
+		return matches.contains(match) || matches.contains(match.reverse());
 	}
 
 	public void addMatch(Match match) {

@@ -39,4 +39,8 @@ public class Match {
 	public boolean isReverseOf(Match that) {
 		return this.guest.equals(that.home) && this.home.equals(that.guest);
 	}
+
+	public Match reverse() {
+		return new Match(guest, home);
+	}
 }

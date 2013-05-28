@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class DayTest {
 	private static final Match A_MATCH = new Match("A", "B");
+	private static final Match REVERSE_MATCH = new Match("B", "A");
 
 	@Test
 	public void givenADayWithoutMatchesThenContainsReturnsFalse() throws Exception {
@@ -18,5 +19,12 @@ public class DayTest {
 		Day day = new Day();
 		day.addMatch(A_MATCH);
 		assertTrue(day.contains(A_MATCH));
+	}
+	
+	@Test
+	public void givenADayWithAMatchThenContainsReturnsTrueForTheReverseMatch() throws Exception {
+		Day day = new Day();
+		day.addMatch(A_MATCH);
+		assertTrue(day.contains(REVERSE_MATCH));
 	}
 }
