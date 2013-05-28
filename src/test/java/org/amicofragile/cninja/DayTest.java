@@ -11,20 +11,20 @@ public class DayTest {
 	@Test
 	public void givenADayWithoutMatchesThenContainsReturnsFalse() throws Exception {
 		Day day = new Day();
-		assertFalse(day.contains(A_MATCH));
+		assertFalse(day.containsMatch(A_MATCH));
 	}
 	
 	@Test
 	public void givenADayWithAMatchThenContainsReturnsTrueForThatMatch() throws Exception {
 		Day day = new Day();
 		day.addMatch(A_MATCH);
-		assertTrue(day.contains(A_MATCH));
+		assertTrue(day.containsMatch(A_MATCH));
 	}
 	
 	@Test
 	public void givenADayWithAMatchThenContainsReturnsTrueForTheReverseMatch() throws Exception {
 		Day day = new Day();
 		day.addMatch(A_MATCH);
-		assertTrue(day.contains(REVERSE_MATCH));
+		assertTrue(day.containsMatch(REVERSE_MATCH));
 	}
 }

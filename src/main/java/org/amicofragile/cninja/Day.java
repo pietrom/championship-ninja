@@ -10,7 +10,7 @@ public class Day {
 		this.matches = new LinkedList<Match>();
 	}
 	
-	public boolean contains(Match match) {
+	public boolean containsMatch(Match match) {
 		return matches.contains(match) || matches.contains(match.reverse());
 	}
 
