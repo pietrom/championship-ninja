@@ -17,4 +17,8 @@ public class Day {
 	public void addMatch(Match match) {
 		matches.add(match);
 	}
+
+	public int getMatchCount() {
+		return 0;
+	}
 }

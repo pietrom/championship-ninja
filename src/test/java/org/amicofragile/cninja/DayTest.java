@@ -27,4 +27,10 @@ public class DayTest {
 		day.addMatch(A_MATCH);
 		assertTrue(day.containsMatch(REVERSE_MATCH));
 	}
+	
+	@Test
+	public void givenADayWithoutMatchesThenCountReturnsTrue() throws Exception {
+		Day day = new Day();
+		assertEquals(0, day.getMatchCount());
+	}
 }
