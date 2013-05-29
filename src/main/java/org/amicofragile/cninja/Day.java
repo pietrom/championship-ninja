@@ -19,6 +19,6 @@ public class Day {
 	}
 
 	public int getMatchCount() {
-		return 0;
+		return matches.size();
 	}
 }

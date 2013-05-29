@@ -33,4 +33,14 @@ public class DayTest {
 		Day day = new Day();
 		assertEquals(0, day.getMatchCount());
 	}
+	
+	@Test
+	public void givenADayWithNMatchesThenCountReturnsN() throws Exception {
+		Day day = new Day();
+		final int count = 10;
+		for (int i = 0; i < count; i++) {
+			day.addMatch(new Match("A" + i, "B" + i));
+		}
+		assertEquals(10, day.getMatchCount());
+	}
 }
