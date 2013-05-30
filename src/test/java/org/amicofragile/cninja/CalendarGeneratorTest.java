@@ -2,11 +2,23 @@ package org.amicofragile.cninja;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public class CalendarGeneratorTest {
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void cantCreateGeneratorWithoutTeams() throws Exception {
 		new CalendarGenerator();
+	}
+
+	@Test
+	public void givenGeneratorWithTwoTeamsThenGenerateASingleDayCalendar()
+			throws Exception {
+		CalendarGenerator generator = new CalendarGenerator("A", "B");
+		List<Day> calendar = generator.generate();
+		assertEquals(1, calendar.size());
+		assertEquals(1, calendar.get(0).getMatchCount());
+		assertTrue(calendar.get(0).containsMatch(new Match("A", "B")));
 	}
 }
