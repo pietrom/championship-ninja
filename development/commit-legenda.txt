@@ -1,0 +1,6 @@
+ENH Enhancement
+FIX Bugfix
+REF Refactoring
+FRM Reformat
+CLN Cleanup
+AUT Automation
