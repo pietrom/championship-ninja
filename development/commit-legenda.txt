@@ -5,3 +5,4 @@ ENH Enhancement
 FIX Bugfix
 FRM Reformat
 REF Refactoring
+TST Testing
