@@ -4,5 +4,6 @@ DOC Documentation
 ENH Enhancement
 FIX Bugfix
 FRM Reformat
+IGN Ignore
 REF Refactoring
 TST Testing
