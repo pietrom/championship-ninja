@@ -10,19 +10,23 @@ public class CalendarGenerator {
 
 	public CalendarGenerator(String... competitors) {
 		checkCompetitorsListIsNotEmpty(competitors);
-		Set<String> temp = new HashSet<String>();
-		for (String t : competitors) {
-			temp.add(t);
-		}
-		if (temp.size() < competitors.length) {
-			throw new IllegalArgumentException("Can't supply the same competitor twice");
-		}
+		checkCompetitorsListDoesntContainRepetitions(competitors);
 		this.competitors = competitors;
 	}
 
 	private void checkCompetitorsListIsNotEmpty(String[] competitors) {
 		if (competitors.length == 0) {
 			throw new IllegalArgumentException("Can't instantiate CalendarGenerator without competitors");
+		}
+	}
+
+	private void checkCompetitorsListDoesntContainRepetitions(String[] competitors) {
+		Set<String> temp = new HashSet<String>();
+		for (String t : competitors) {
+			temp.add(t);
+		}
+		if (temp.size() < competitors.length) {
+			throw new IllegalArgumentException("Can't supply the same competitor twice");
 		}
 	}
 
