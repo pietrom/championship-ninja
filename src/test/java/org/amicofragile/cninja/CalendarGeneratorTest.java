@@ -21,4 +21,9 @@ public class CalendarGeneratorTest {
 		assertEquals(1, calendar.get(0).getMatchCount());
 		assertTrue(calendar.get(0).containsMatch(new Match("A", "B")));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void cantSupplyTheSameCompetitorTwiceToTheGenerator() throws Exception {
+		new CalendarGenerator("A", "A");
+	}
 }
