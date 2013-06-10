@@ -10,8 +10,15 @@ public class CalendarGenerator {
 
 	public CalendarGenerator(String... competitors) {
 		checkCompetitorsListIsNotEmpty(competitors);
+		checkCompetitorsNumberIsEven(competitors);
 		checkCompetitorsListDoesntContainRepetitions(competitors);
 		this.competitors = competitors;
+	}
+
+	private void checkCompetitorsNumberIsEven(String[] competitors) {
+		if (competitors.length % 2 == 1) {
+			throw new IllegalArgumentException("Can't supply an odd number of competitors to CalendarGenerator");
+		}
 	}
 
 	private void checkCompetitorsListIsNotEmpty(String[] competitors) {
