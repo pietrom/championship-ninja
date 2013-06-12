@@ -1,5 +1,6 @@
 package org.amicofragile.cninja;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +12,16 @@ public class CalendarGenerator {
 	public CalendarGenerator(String... competitors) {
 		checkCompetitorsListIsNotEmpty(competitors);
 		checkCompetitorsListDoesntContainRepetitions(competitors);
-		this.competitors = competitors;
+		this.competitors = normalize(competitors);
+	}
+
+	private String[] normalize(String[] competitors) {
+		String[] result = competitors;
+		if(competitors.length % 2 == 1) {
+			result = Arrays.copyOf(competitors, competitors.length + 1);
+			result[competitors.length] = "-";
+		}
+		return result;
 	}
 
 	private void checkCompetitorsListIsNotEmpty(String[] competitors) {
