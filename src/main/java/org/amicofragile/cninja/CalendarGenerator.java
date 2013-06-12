@@ -32,9 +32,24 @@ public class CalendarGenerator {
 
 	public List<Day> generate() {
 		List<Day> calendar = new LinkedList<Day>();
-		Day day1 = new Day();
-		day1.addMatch(new Match(competitors[0], competitors[1]));
-		calendar.add(day1);
+		if(competitors.length == 2) {
+			Day day1 = new Day();
+			day1.addMatch(new Match(competitors[0], competitors[1]));
+			calendar.add(day1);
+		} else if(competitors.length == 4) {
+			Day day1 = new Day();
+			day1.addMatch(new Match(competitors[0], competitors[1]));
+			day1.addMatch(new Match(competitors[2], competitors[3]));
+			calendar.add(day1);
+			Day day2 = new Day();
+			day2.addMatch(new Match(competitors[0], competitors[2]));
+			day2.addMatch(new Match(competitors[1], competitors[3]));
+			calendar.add(day2);
+			Day day3 = new Day();
+			day3.addMatch(new Match(competitors[0], competitors[3]));
+			day3.addMatch(new Match(competitors[1], competitors[2]));
+			calendar.add(day2);
+		}
 		return calendar;
 	}
 }

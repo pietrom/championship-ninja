@@ -26,4 +26,14 @@ public class CalendarGeneratorTest {
 	public void cantSupplyTheSameCompetitorTwiceToTheGenerator() throws Exception {
 		new CalendarGenerator("A", "A");
 	}
+	
+	@Test
+	public void threeDayForFourTeams() throws Exception {
+		CalendarGenerator generator = new CalendarGenerator("A", "B", "C", "D");
+		List<Day> calendar = generator.generate();
+		assertEquals(3, calendar.size());
+		assertEquals(2, calendar.get(0).getMatchCount());
+		assertEquals(2, calendar.get(1).getMatchCount());
+		assertEquals(2, calendar.get(2).getMatchCount());
+	}
 }
