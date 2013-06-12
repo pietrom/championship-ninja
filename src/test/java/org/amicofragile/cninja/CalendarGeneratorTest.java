@@ -26,9 +26,4 @@ public class CalendarGeneratorTest {
 	public void cantSupplyTheSameCompetitorTwiceToTheGenerator() throws Exception {
 		new CalendarGenerator("A", "A");
 	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void cantSupplyAnOddNumberOfCompetitorsToTheGenerator() throws Exception {
-		new CalendarGenerator("A", "B", "C");
-	}
 }
