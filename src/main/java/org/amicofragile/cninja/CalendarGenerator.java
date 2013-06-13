@@ -17,7 +17,7 @@ public class CalendarGenerator {
 
 	private String[] normalize(String[] competitors) {
 		String[] result = competitors;
-		if(competitors.length % 2 == 1) {
+		if (competitors.length % 2 == 1) {
 			result = Arrays.copyOf(competitors, competitors.length + 1);
 			result[competitors.length] = "-";
 		}
@@ -42,11 +42,11 @@ public class CalendarGenerator {
 
 	public List<Day> generate() {
 		List<Day> calendar = new LinkedList<Day>();
-		if(competitors.length == 2) {
+		if (competitors.length == 2) {
 			Day day1 = new Day();
 			day1.addMatch(new Match(competitors[0], competitors[1]));
 			calendar.add(day1);
-		} else if(competitors.length == 4) {
+		} else if (competitors.length == 4) {
 			Day day1 = new Day();
 			day1.addMatch(new Match(competitors[0], competitors[1]));
 			day1.addMatch(new Match(competitors[2], competitors[3]));
@@ -59,7 +59,7 @@ public class CalendarGenerator {
 			day3.addMatch(new Match(competitors[0], competitors[3]));
 			day3.addMatch(new Match(competitors[1], competitors[2]));
 			calendar.add(day2);
-		} else if(competitors.length == 6) {
+		} else if (competitors.length == 6) {
 			Day day1 = new Day();
 			day1.addMatch(new Match(competitors[0], competitors[1]));
 			day1.addMatch(new Match(competitors[2], competitors[3]));
