@@ -46,4 +46,16 @@ public class CalendarGeneratorTest {
 		assertEquals(2, calendar.get(1).getMatchCount());
 		assertEquals(2, calendar.get(2).getMatchCount());
 	}
+	
+	@Test
+	public void fiveDaysForSixTeams() throws Exception {
+		CalendarGenerator generator = new CalendarGenerator("A", "B", "C", "D", "E", "F");
+		List<Day> calendar = generator.generate();
+		assertEquals(5, calendar.size());
+		assertEquals(3, calendar.get(0).getMatchCount());
+		assertEquals(3, calendar.get(1).getMatchCount());
+		assertEquals(3, calendar.get(2).getMatchCount());
+		assertEquals(3, calendar.get(3).getMatchCount());
+		assertEquals(3, calendar.get(4).getMatchCount());
+	}
 }
